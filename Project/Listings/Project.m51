@@ -1,0 +1,297 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        09/05/2024  18:34:41  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+D:\KEIL_V5(C51)\C51\BIN\BL51.EXE .\Objects\main.obj, .\Objects\Delay.obj, .\Objects\MAX7219.obj, .\Objects\UART.obj TO .
+>> \Objects\Project PRINT (.\Listings\Project.m51) RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\main.obj (MAIN)
+  .\Objects\Delay.obj (DELAY)
+  .\Objects\MAX7219.obj (MAX7219)
+  .\Objects\UART.obj (UART)
+  D:\KEIL_V5(C51)\C51\LIB\C51S.LIB (?C_STARTUP)
+  D:\KEIL_V5(C51)\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  .\Objects\Project (MAIN)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0040H     UNIT         ?DT?MAIN
+            DATA    0048H     0028H     UNIT         _DATA_GROUP_
+            IDATA   0070H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0020H     UNIT         ?CO?MAIN
+            CODE    0023H     0003H     ABSOLUTE     
+            CODE    0026H     00AFH     UNIT         ?PR?UART_IN?MAIN
+            CODE    00D5H     008CH     UNIT         ?C_C51STARTUP
+            CODE    0161H     0060H     UNIT         ?PR?MAX7219_INIT?MAX7219
+            CODE    01C1H     0047H     UNIT         ?C_INITSEG
+            CODE    0208H     003EH     UNIT         ?PR?MAIN?MAIN
+            CODE    0246H     001BH     UNIT         ?PR?UART_INIT?UART
+            CODE    0261H     0015H     UNIT         ?PR?_DELAY?DELAY
+            CODE    0276H     0011H     UNIT         ?PR?_MAX7219_WRITEBYTE?MAX7219
+            CODE    0287H     000EH     UNIT         ?PR?_MAX7219_WRITE?MAX7219
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\Project (MAIN)
+
+
+SEGMENT                                  DATA_GROUP 
+  +--> CALLED SEGMENT                  START    LENGTH
+------------------------------------------------------
+?PR?UART_IN?MAIN                       0048H    0024H
+
+*** NEW ROOT ***************************************************
+
+?C_C51STARTUP                          -----    -----
+  +--> ?PR?MAIN?MAIN
+  +--> ?C_INITSEG
+BL51 BANKED LINKER/LOCATER V6.22                                                      09/05/2024  18:34:41  PAGE 2
+
+
+
+?PR?MAIN?MAIN                          006CH    0003H
+  +--> ?PR?MAX7219_INIT?MAX7219
+  +--> ?PR?UART_INIT?UART
+  +--> ?PR?_MAX7219_WRITEBYTE?MAX7219
+
+?PR?MAX7219_INIT?MAX7219               006FH    0001H
+  +--> ?PR?_MAX7219_WRITE?MAX7219
+
+?PR?_MAX7219_WRITE?MAX7219             -----    -----
+  +--> ?PR?_MAX7219_WRITEBYTE?MAX7219
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\Project (MAIN)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:00A0H         PUBLIC        P2
+  C:0026H         PUBLIC        Uart_IN
+  B:00A0H.1       PUBLIC        CS
+  B:0098H.0       PUBLIC        RI
+  C:0208H         PUBLIC        main
+  D:0099H         PUBLIC        SBUF
+  C:0003H         PUBLIC        location
+  D:0008H         PUBLIC        setdata
+  D:0028H         PUBLIC        segment
+  -------         PROC          MAIN
+  -------         DO            
+  D:006CH         SYMBOL        x
+  D:006DH         SYMBOL        y
+  D:006EH         SYMBOL        z
+  -------         ENDDO         
+  C:0208H         LINE#         8
+  C:0208H         LINE#         9
+  C:0208H         LINE#         10
+  C:020BH         LINE#         11
+  C:020EH         LINE#         12
+  C:020EH         LINE#         13
+  C:020EH         LINE#         15
+  C:0211H         LINE#         16
+  C:0211H         LINE#         17
+  C:0213H         LINE#         18
+  C:0216H         LINE#         19
+  C:0216H         LINE#         20
+  C:021BH         LINE#         21
+  C:021FH         LINE#         22
+  C:022FH         LINE#         23
+  C:0230H         LINE#         24
+  C:0239H         LINE#         25
+  C:023BH         LINE#         26
+  -------         ENDPROC       MAIN
+  -------         PROC          UART_IN
+  -------         DO            
+BL51 BANKED LINKER/LOCATER V6.22                                                      09/05/2024  18:34:41  PAGE 3
+
+
+  D:0048H         SYMBOL        i
+  D:004AH         SYMBOL        j
+  D:0004H         SYMBOL        k
+  D:0006H         SYMBOL        u
+  D:0005H         SYMBOL        _data
+  D:004CH         SYMBOL        rec_data
+  -------         ENDDO         
+  C:0026H         LINE#         30
+  C:003BH         LINE#         35
+  C:0041H         LINE#         36
+  C:0041H         LINE#         37
+  C:0048H         LINE#         38
+  C:0050H         LINE#         39
+  C:0056H         LINE#         40
+  C:0056H         LINE#         41
+  C:005AH         LINE#         42
+  C:005CH         LINE#         43
+  C:005CH         LINE#         44
+  C:0060H         LINE#         45
+  C:0060H         LINE#         46
+  C:0072H         LINE#         47
+  C:007AH         LINE#         48
+  C:0085H         LINE#         49
+  C:0090H         LINE#         50
+  C:0094H         LINE#         51
+  C:0094H         LINE#         52
+  C:009AH         LINE#         53
+  C:00A6H         LINE#         54
+  C:00ACH         LINE#         55
+  C:00B7H         LINE#         56
+  C:00BDH         LINE#         57
+  C:00C0H         LINE#         59
+  C:00C0H         LINE#         60
+  C:00C2H         LINE#         61
+  C:00C2H         LINE#         62
+  -------         ENDPROC       UART_IN
+  -------         ENDMOD        MAIN
+
+  -------         MODULE        DELAY
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:0261H         PUBLIC        _Delay
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        xms
+  -------         DO            
+  D:0005H         SYMBOL        i
+  D:0004H         SYMBOL        j
+  -------         ENDDO         
+  C:0261H         LINE#         4
+  C:0261H         LINE#         5
+  C:0261H         LINE#         7
+  C:0265H         LINE#         8
+  C:0265H         LINE#         9
+  C:0266H         LINE#         10
+  C:0268H         LINE#         11
+  C:026AH         LINE#         13
+  C:026AH         LINE#         14
+  C:026CH         LINE#         15
+BL51 BANKED LINKER/LOCATER V6.22                                                      09/05/2024  18:34:41  PAGE 4
+
+
+  C:026EH         LINE#         16
+  C:0273H         LINE#         17
+  C:0275H         LINE#         18
+  -------         ENDPROC       _DELAY
+  -------         ENDMOD        DELAY
+
+  -------         MODULE        MAX7219
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:0276H         PUBLIC        _Max7219_WriteByte
+  D:00A0H         PUBLIC        P2
+  B:00A0H.1       PUBLIC        CS
+  B:00A0H.2       PUBLIC        CLK
+  B:00A0H.0       PUBLIC        DIN
+  C:0287H         PUBLIC        _Max7219_Write
+  C:0161H         PUBLIC        Max7219_Init
+  -------         PROC          MAX7219_INIT
+  -------         DO            
+  D:006FH         SYMBOL        i
+  -------         ENDDO         
+  C:0161H         LINE#         10
+  C:0161H         LINE#         11
+  C:0161H         LINE#         13
+  C:0164H         LINE#         14
+  C:0164H         LINE#         15
+  C:016BH         LINE#         16
+  C:0174H         LINE#         17
+  C:0177H         LINE#         18
+  C:0177H         LINE#         19
+  C:017EH         LINE#         20
+  C:0187H         LINE#         21
+  C:018AH         LINE#         22
+  C:018AH         LINE#         23
+  C:0191H         LINE#         24
+  C:019AH         LINE#         25
+  C:019DH         LINE#         26
+  C:019DH         LINE#         27
+  C:01A4H         LINE#         28
+  C:01ADH         LINE#         29
+  C:01B0H         LINE#         30
+  C:01B0H         LINE#         31
+  C:01B7H         LINE#         32
+  C:01C0H         LINE#         33
+  -------         ENDPROC       MAX7219_INIT
+  -------         PROC          _MAX7219_WRITEBYTE
+  D:0007H         SYMBOL        Byte
+  -------         DO            
+  D:0006H         SYMBOL        i
+  -------         ENDDO         
+  C:0276H         LINE#         40
+  C:0276H         LINE#         41
+  C:0276H         LINE#         43
+  C:0278H         LINE#         44
+  C:0278H         LINE#         45
+  C:027AH         LINE#         46
+  C:027EH         LINE#         47
+  C:0282H         LINE#         48
+  C:0284H         LINE#         49
+BL51 BANKED LINKER/LOCATER V6.22                                                      09/05/2024  18:34:41  PAGE 5
+
+
+  C:0286H         LINE#         50
+  -------         ENDPROC       _MAX7219_WRITEBYTE
+  -------         PROC          _MAX7219_WRITE
+  D:0007H         SYMBOL        add
+  D:0005H         SYMBOL        dat
+  C:0287H         LINE#         60
+  C:0287H         LINE#         61
+  C:0287H         LINE#         62
+  C:0289H         LINE#         63
+  C:028CH         LINE#         64
+  C:0291H         LINE#         65
+  C:0292H         LINE#         66
+  C:0294H         LINE#         67
+  -------         ENDPROC       _MAX7219_WRITE
+  -------         ENDMOD        MAX7219
+
+  -------         MODULE        UART
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  B:00A8H.7       PUBLIC        EA
+  C:0246H         PUBLIC        Uart_Init
+  B:00A8H.4       PUBLIC        ES
+  D:0087H         PUBLIC        PCON
+  D:0098H         PUBLIC        SCON
+  D:0089H         PUBLIC        TMOD
+  B:00A8H.3       PUBLIC        ET1
+  D:008DH         PUBLIC        TH1
+  D:008BH         PUBLIC        TL1
+  B:0088H.6       PUBLIC        TR1
+  -------         PROC          UART_INIT
+  C:0246H         LINE#         4
+  C:0246H         LINE#         5
+  C:0246H         LINE#         6
+  C:0249H         LINE#         7
+  C:024CH         LINE#         8
+  C:024FH         LINE#         9
+  C:0252H         LINE#         10
+  C:0255H         LINE#         11
+  C:0258H         LINE#         12
+  C:025AH         LINE#         13
+  C:025CH         LINE#         14
+  C:025EH         LINE#         15
+  C:0260H         LINE#         16
+  -------         ENDPROC       UART_INIT
+  -------         ENDMOD        UART
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?CO?MAIN
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY?DELAY
+
+Program Size: data=113.0 xdata=0 code=661
+LINK/LOCATE RUN COMPLETE.  2 WARNING(S),  0 ERROR(S)

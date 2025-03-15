@@ -1,0 +1,93 @@
+C51 COMPILER V9.54   MAX7219                                                               09/05/2024 18:34:41 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE MAX7219
+OBJECT MODULE PLACED IN .\Objects\MAX7219.obj
+COMPILER INVOKED BY: D:\Keil_v5(c51)\C51\BIN\C51.EXE MAX7219.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listi
+                    -ngs\MAX7219.lst) OBJECT(.\Objects\MAX7219.obj)
+
+line level    source
+
+   1          #include <REGX52.H>
+   2          #include "MAX7219.h"
+   3          #include <intrins.h>
+   4          
+   5          /**
+   6           * @brief MAX7219初始化
+   7           * @param 无
+   8           * @retval 无
+   9          */
+  10          void Max7219_Init()
+  11          {
+  12   1              unsigned char i;
+  13   1              for(i=0;i<4;i++)
+  14   1              {
+  15   2                      Max7219_Write(0x09,0x00);               //译码方式：BCD码
+  16   2              }
+  17   1              for(i=0;i<4;i++)
+  18   1              {
+  19   2                      Max7219_Write(0x0a,0x03);               //亮度 
+  20   2              }
+  21   1              for(i=0;i<4;i++)
+  22   1              {
+  23   2                      Max7219_Write(0x0b,0x07);               //扫描界限；8个数码管显示
+  24   2              }
+  25   1              for(i=0;i<4;i++)
+  26   1              {
+  27   2                      Max7219_Write(0x0c,0x01);               //掉电模式：0，普通模式：1
+  28   2              }
+  29   1              for(i=0;i<4;i++)
+  30   1              {
+  31   2                      Max7219_Write(0x0f,0x00);               //显示测试：1；测试结束，正常显示：0
+  32   2              }
+  33   1      }
+  34          
+  35          /**
+  36           * @brief MAX7210写入单个数据Byte
+  37           * @param Byte
+  38           * @retval 无
+  39          */
+  40          void Max7219_WriteByte(unsigned char Byte)
+  41          {
+  42   1              unsigned char i;
+  43   1              for(i=8;i>=1;i--)
+  44   1              {
+  45   2                      CLK = 0;
+  46   2                      DIN = Byte & 0x80;
+  47   2                      Byte <<= 1;
+  48   2                      CLK = 1;
+  49   2              }
+  50   1      }
+  51          
+  52          /**
+  53           * @brief MAX7219写入一串数据
+  54           * @param add_1
+C51 COMPILER V9.54   MAX7219                                                               09/05/2024 18:34:41 PAGE 2   
+
+  55           * @param dat_1
+  56           * @param add_2
+  57           * @param dat_2
+  58           * @retval 无
+  59          */
+  60          void Max7219_Write(unsigned char add,unsigned char dat)
+  61          {
+  62   1              CS = 0;
+  63   1              Max7219_WriteByte(add);
+  64   1              Max7219_WriteByte(dat);
+  65   1              _nop_();
+  66   1              CS = 1;
+  67   1      }       
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    127    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       1
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
